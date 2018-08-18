@@ -11,7 +11,7 @@ Android config bus library project. Help to manage app custom context config.
     class FontSizeConfigModule: ConfigModule {
       private val defaultFontScale = 1.0F
 
-      ovrride fun isConfigChanged(context: Context, config: Configuration): Boolean {
+      override fun isConfigChanged(context: Context, config: Configuration): Boolean {
         return config.fontScale != defaultFontScale
       }
 
