@@ -24,7 +24,7 @@ Android config bus library project. Help to manage app custom context config.
 * Add config settings to `Application`:
 
     ```kotlin
-    class MyApplication: Application {
+    class MyApplication: Application() {
       init {
         ConfigBus.config()
           .addModule(LanConfigModule())
@@ -48,6 +48,19 @@ Android config bus library project. Help to manage app custom context config.
     }
     ```
 
+    or
+
+    ```kotlin
+    class MyApplication: ConfigBusApplication() {
+      init {
+        ConfigBus.config()
+          .addModule(LanConfigModule())
+          .addModule(FontScaleConfigModule())
+          .apply()
+      }
+    }
+    ```
+
 * Add config settings to `Activity`:
 
     ```kotlin
@@ -55,6 +68,13 @@ Android config bus library project. Help to manage app custom context config.
       override fun attachBaseContext(newBase: Context?) {
         super.attachBaseContext(ConfigBus.wrapContext(newBase))
       }
+    }
+    ```
+
+    or
+
+    ```kotlin
+    class MyActivity: ConfigBusActivity() {
     }
     ```
 
