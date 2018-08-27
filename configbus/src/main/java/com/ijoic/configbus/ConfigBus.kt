@@ -35,6 +35,12 @@ object ConfigBus {
   internal var moduleItems: List<ConfigModule>? = null
 
   /**
+   * Returns config bus config instance.
+   */
+  @JvmStatic
+  fun config() = ConfigBusConfig()
+
+  /**
    * Wrap context with config settings.
    *
    * @param context context.
